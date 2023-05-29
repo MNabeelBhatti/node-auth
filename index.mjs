@@ -1,6 +1,6 @@
 import { config, server } from "./src/config/index.mjs";
 
-server.listen(config.port, () => {
+server.listen(process.env.PORT || config.port, () => {
   console.log(`Server Running ON Port ${config.port}`);
 });
 
