@@ -1,0 +1,48 @@
+<div class="px-4 py-5 my-5 text-center">
+  <img
+    class="d-block mx-auto mb-4"
+    src="https://uilogos.co/img/logomark/u-mark.png"
+    alt=""
+    width="auto"
+    height="150"
+  />
+  <h1 class="display-5 fw-bold">Register Here</h1>
+  <div class="col-lg-3 mx-auto">
+    <form action="/auth/signup" method="POST">
+      <div class="mb-2">
+        <label for="username" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          placeholder="Name"
+          required
+        />
+      </div>
+      <div class="mb-2">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="mb-2">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Password"
+          min="5"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+    <h3>or</h3>
+    <a href="/auth/login" type="button" class="btn btn-primary">Login</a>
+  </div>
+</div>
