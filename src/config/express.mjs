@@ -9,12 +9,12 @@ import logger from "morgan";
 import { errorHandler } from "#middleware";
 import router from "#route";
 import expressEjsLayouts from "express-ejs-layouts";
-import { LocalStorage } from "node-localstorage";
+import Helmet from "helmet";
+import cookieParser from "cookie-parser";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 //SocketIO
 const app = express(); // Init Express APP
-const Storage = new LocalStorage("./data");
 
 app.disable("x-powered-by");
 app.use(
@@ -28,6 +28,7 @@ app.use(
     extended: false,
   })
 );
+app.use(cookieParser());
 const server = http.Server(app);
 // Set up view engine and layout
 app.set("view engine", "ejs");
@@ -35,6 +36,11 @@ app.set("layout", "layout/main");
 app.use(expressEjsLayouts);
 app.use(logger("dev"));
 app.use(router);
+// allow the app to use cookieparser
+// app.use(Helmet());
+
+// allow the app to use cookieparser
+
 app.set("views", join(__dirname, "../views"));
 // app.use(express.static(join(__dirname, "../views")));
 // app.get("*", function (_, res) {
@@ -45,4 +51,4 @@ app.set("views", join(__dirname, "../views"));
 app.use(errorHandler.genericErrorHandler);
 app.use(errorHandler.methodNotAllowed);
 
-export { server, Storage };
+export { server };

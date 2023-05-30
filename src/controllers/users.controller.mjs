@@ -3,7 +3,6 @@ import { User } from "../models/index.mjs";
 import { hashPassword, comparePassword } from "../helpers/users.helper.mjs";
 import { MailService } from "../services/index.mjs";
 import { config } from "../config/config.mjs";
-import { Storage } from "../config/express.mjs";
 
 export const login = async (req, res, next) => {
   const { email, password } = req.body;
@@ -16,8 +15,11 @@ export const login = async (req, res, next) => {
         var message = "Successfully Singed In ";
         delete exists.password;
 
-        var responseData = { token: "Bearer " + token, user: exists };
-        await Storage.setItem("auth", JSON.stringify(responseData));
+        var responseData = {
+          token: "Bearer " + token,
+          user: { name: exists.name, _id: exists._id },
+        };
+        res.cookie("auth", JSON.stringify(responseData));
         return res.redirect("/home");
         // return res.json({
         //   message,
@@ -50,9 +52,12 @@ export const signup = async (req, res, next) => {
     });
     let token = await jwtHelper.signAccessToken(newUser);
     delete newUser.password;
-    await Storage.setItem(
+    res.cookie(
       "auth",
-      JSON.stringify({ user: newUser, token: "Bearer " + token })
+      JSON.stringify({
+        user: { name: newUser.name, id_: newUser._id },
+        token: "Bearer " + token,
+      })
     );
     return res.redirect("/home");
     // return res.json({
@@ -65,7 +70,7 @@ export const signup = async (req, res, next) => {
 };
 export const logout = async (req, res, next) => {
   try {
-    await Storage.clear();
+    res.clearCookie("auth");
     res.redirect("/");
   } catch (error) {
     next(error);
