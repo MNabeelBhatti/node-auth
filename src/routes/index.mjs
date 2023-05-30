@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
 router.get("/home", async (req, res) => {
   let item = await Storage.getItem("auth");
   let auth = JSON.parse(item || "{}");
+  console.log(Storage);
   if (auth?.token) {
     res.render("home", { title: "Home", user: auth?.user });
   } else {

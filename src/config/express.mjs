@@ -9,15 +9,13 @@ import logger from "morgan";
 import { errorHandler } from "#middleware";
 import router from "#route";
 import expressEjsLayouts from "express-ejs-layouts";
-import storage from "node-persist";
-
+import { LocalStorage } from "node-localstorage";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 //SocketIO
 const app = express(); // Init Express APP
+const Storage = new LocalStorage("./data");
 
-(async () => await storage.init())();
-let Storage = storage;
 app.disable("x-powered-by");
 app.use(
   cors({
