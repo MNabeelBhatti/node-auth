@@ -9,15 +9,15 @@ import logger from "morgan";
 import { errorHandler } from "#middleware";
 import router from "#route";
 import expressEjsLayouts from "express-ejs-layouts";
-import Storage from "node-persist";
+import storage from "node-persist";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 //SocketIO
 const app = express(); // Init Express APP
 
-(async () => await Storage.init())();
-
+(async () => await storage.init())();
+let Storage = storage;
 app.disable("x-powered-by");
 app.use(
   cors({
