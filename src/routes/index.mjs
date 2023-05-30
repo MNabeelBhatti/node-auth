@@ -4,7 +4,6 @@ import authRoutes from "./auth.routes.mjs";
 import { Storage } from "../config/express.mjs";
 const router = Router();
 router.get("/", async (req, res) => {
-  await Storage.setItem("item", "new");
   res.render("index", { title: "Landing" });
 });
 router.get("/home", async (req, res) => {
