@@ -1,0 +1,75 @@
+
+<html>
+    <head>
+        <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+    <body>
+        <div style="width: 85%; height: 100vh; margin: 0 7.5%;">
+            <div style="text-align: center; padding-left: 50px;">            
+                <h3>Student Report 1</h5>
+                <table>
+                <% if (students.length > 0) { %>
+                    <% students.forEach(student => {%>
+                       <tr><td><%= student.name %></td><td><%= student.email %></td><td><%= student.city %></td><td><%=student.country %></td></tr>
+                    <%  });%>
+                <% }%>
+                </table>
+             </div>
+        </div>
+        <div style="width: 85%;height: 100vh; margin: 0 7.5%;">
+            <div style="text-align: center; padding-left: 50px;">            
+                <h3>Student Report 2</h5>
+                <table>
+                <% if (students.length > 0) { %>
+                    <% students.forEach(student => {%>
+                       <tr><td><%= student.name %></td><td><%= student.email %></td><td><%= student.city %></td><td><%=student.country %></td></tr>
+                    <%  });%>
+                <% }%>
+                </table>
+             </div>
+        </div>
+        <div style="width: 85%;height: 100vh; margin: 0 7.5%;">
+            <div style="text-align: center; padding-left: 50px;">            
+                <h3>Student Report 3</h5>
+                <table>
+                <% if (students.length > 0) { %>
+                    <% students.forEach(student => {%>
+                       <tr><td><%= student.name %></td><td><%= student.email %></td><td><%= student.city %></td><td><%=student.country %></td></tr>
+                    <%  });%>
+                <% }%>
+                </table>
+             </div>
+        </div>
+        <div style="width: 85%;height: 100vh; margin: 0 7.5%;">
+            <div style="text-align: center; padding-left: 50px;">            
+                <h3>Student Report 4</h5>
+                <table>
+                <% if (students.length > 0) { %>
+                    <% students.forEach(student => {%>
+                       <tr><td><%= student.name %></td><td><%= student.email %></td><td><%= student.city %></td><td><%=student.country %></td></tr>
+                    <%  });%>
+                <% }%>
+                </table>
+             </div>
+        </div>
+        <div style="width: 85%;height: 100vh; margin: 0 7.5%;">
+            <div style="text-align: center; padding-left: 50px;">            
+                <h3>Student Report 5</h5>
+                <table>
+                <% if (students.length > 0) { %>
+                    <% students.forEach(student => {%>
+                       <tr><td><%= student.name %></td><td><%= student.email %></td><td><%= student.city %></td><td><%=student.country %></td></tr>
+                    <%  });%>
+                <% }%>
+                </table>
+             </div>
+        </div>
+    </body>
+</html>
