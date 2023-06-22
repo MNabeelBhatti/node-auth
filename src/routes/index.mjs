@@ -88,15 +88,23 @@ router.get("/html-to-pdf", async (req, res, next) => {
 });
 router.get("/nft-img", async (req, res, next) => {
   try {
-    return res.json({
-      message: "nft image",
-      payload: {
+    return res.json(
+      {
         name: "4th nft",
         description: "plzz ho ja",
         image:
           "https://res.cloudinary.com/dhjhkqarn/image/upload/v1687346892/mnv0xhuycvxvtl31a0cw.jpg",
-      },
-    });
+      }
+    //   {
+    //   message: "nft image",
+    //   payload: {
+    //     name: "4th nft",
+    //     description: "plzz ho ja",
+    //     image:
+    //       "https://res.cloudinary.com/dhjhkqarn/image/upload/v1687346892/mnv0xhuycvxvtl31a0cw.jpg",
+    //   },
+    // }
+    );
   } catch (error) {
     next(error);
   }
